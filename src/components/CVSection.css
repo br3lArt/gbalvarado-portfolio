@@ -1,0 +1,273 @@
+.cv {
+    background: var(--color-bg-secondary);
+}
+
+.cv__container {
+    max-width: 1100px;
+}
+
+.cv__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+}
+
+/* Cards */
+.cv__card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-light);
+    margin-bottom: var(--space-6);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.cv__card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.cv__card:last-child {
+    margin-bottom: 0;
+}
+
+.cv__card-title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+}
+
+/* Bio Card */
+.cv__bio {
+    background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(124, 58, 237, 0.03) 100%);
+}
+
+.cv__name {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-3);
+}
+
+.cv__bio-text {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* Lists */
+.cv__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.cv__list-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.cv__list-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.cv__item-title {
+    font-weight: var(--font-semibold);
+    color: var(--color-text);
+}
+
+.cv__item-subtitle {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+.cv__item-period {
+    font-size: var(--text-xs);
+    color: var(--color-primary);
+    font-weight: var(--font-medium);
+}
+
+/* Languages */
+.cv__list--inline {
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.cv__lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+}
+
+.cv__lang-name {
+    font-weight: var(--font-medium);
+    color: var(--color-text);
+}
+
+.cv__lang-level {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+}
+
+/* Profile Card */
+.cv__profile-card {
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+}
+
+.cv__profile-card .cv__card-title {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.cv__profile-image {
+    margin-bottom: var(--space-4);
+}
+
+.cv__profile-placeholder {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.cv__profile-icon {
+    font-size: 40px;
+}
+
+.cv__profile-name {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-1);
+}
+
+.cv__profile-nickname {
+    font-size: var(--text-sm);
+    opacity: 0.8;
+}
+
+/* Achievements */
+.cv__achievements {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.cv__achievement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+.cv__achievement-icon {
+    color: var(--color-accent);
+    font-size: var(--text-base);
+}
+
+/* Skills */
+.cv__skills {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.cv__skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-2);
+}
+
+.cv__skill-name {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--color-text);
+}
+
+.cv__skill-level {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+}
+
+.cv__skill-bar {
+    height: 6px;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.cv__skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    border-radius: var(--radius-full);
+    transition: width 1s ease;
+}
+
+/* Programs */
+.cv__programs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+}
+
+.cv__program {
+    width: 50px;
+    height: 50px;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+    cursor: default;
+}
+
+.cv__program:hover {
+    background: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.cv__program:hover .cv__program-icon {
+    color: white;
+}
+
+.cv__program-icon {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: var(--color-text-secondary);
+    transition: color var(--transition-base);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cv__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cv__left,
+    .cv__right {
+        order: unset;
+    }
+
+    .cv__profile-card {
+        order: -1;
+    }
+}
