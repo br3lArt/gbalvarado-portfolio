@@ -6,6 +6,7 @@ export interface Artwork {
   category: string;
   imageUrl: string;
   description?: string;
+  isVideo?: boolean;
 }
 
 export interface Experience {
@@ -46,6 +47,8 @@ export interface ProfileData {
   name: string;
   nickname: string;
   email: string;
+  phone?: string;
+  whatsappLink?: string;
   bio: string;
   profileImage: string;
   experience: Experience[];

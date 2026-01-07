@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { artworkData } from '../data';
+import { galleryCategories } from '../data';
 import type { Artwork } from '../types';
 import './GallerySection.css';
 
@@ -18,46 +18,88 @@ const GallerySection = () => {
     }, []);
 
     return (
-        <section id="gallery" className="gallery section">
+        <section id="gallery" className="gallery">
             <div className="gallery__container container">
-                <h2 className="section-title">Gallery</h2>
-
-                {/* Masonry Grid - Shows all artwork */}
-                <div className="gallery__grid">
-                    {artworkData.map((artwork, index) => (
-                        <div
-                            key={artwork.id}
-                            className="gallery__item"
-                            onClick={() => setSelectedImage(artwork)}
-                            style={{ animationDelay: `${index * 50}ms` }}
-                        >
-                            <img
-                                src={artwork.imageUrl}
-                                alt={artwork.title}
-                                className="gallery__image"
-                                loading="lazy"
-                            />
-                            <div className="gallery__overlay">
-                                <h3 className="gallery__title">{artwork.title}</h3>
-                                <span className="gallery__category">{artwork.category}</span>
-                            </div>
-                        </div>
-                    ))}
+                {/* Section Header */}
+                <div className="gallery__header">
+                    <span className="gallery__tag">/Mi Trabajo/</span>
+                    <h2 className="gallery__title">GALERÍA</h2>
                 </div>
+
+                {/* Gallery Categories */}
+                {galleryCategories.map((category) => (
+                    <div key={category.id} className="gallery__category">
+                        {/* Category Header */}
+                        <div className="gallery__category-header">
+                            <h3 className="gallery__category-title">{category.title}</h3>
+                            <p className="gallery__category-description">{category.description}</p>
+                        </div>
+
+                        {/* Category Grid */}
+                        <div className="gallery__grid">
+                            {category.artworks.map((artwork, index) => (
+                                <div
+                                    key={artwork.id}
+                                    className="gallery__item"
+                                    onClick={() => setSelectedImage(artwork)}
+                                    style={{ animationDelay: `${index * 100}ms` }}
+                                >
+                                    {artwork.isVideo ? (
+                                        <video
+                                            src={artwork.imageUrl}
+                                            className="gallery__media"
+                                            muted
+                                            loop
+                                            playsInline
+                                            onMouseEnter={(e) => e.currentTarget.play()}
+                                            onMouseLeave={(e) => {
+                                                e.currentTarget.pause();
+                                                e.currentTarget.currentTime = 0;
+                                            }}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={artwork.imageUrl}
+                                            alt={artwork.title}
+                                            className="gallery__media"
+                                            loading="lazy"
+                                        />
+                                    )}
+                                    <div className="gallery__overlay">
+                                        <h4 className="gallery__item-title">{artwork.title}</h4>
+                                        <span className="gallery__item-category">
+                                            {artwork.isVideo && '▶ '}{artwork.category}
+                                        </span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
             </div>
 
             {/* Lightbox */}
             {selectedImage && (
                 <div className="gallery__lightbox" onClick={() => setSelectedImage(null)}>
-                    <button className="gallery__lightbox-close" aria-label="Close">
+                    <button className="gallery__lightbox-close" aria-label="Cerrar">
                         ×
                     </button>
                     <div className="gallery__lightbox-content" onClick={(e) => e.stopPropagation()}>
-                        <img
-                            src={selectedImage.imageUrl}
-                            alt={selectedImage.title}
-                            className="gallery__lightbox-image"
-                        />
+                        {selectedImage.isVideo ? (
+                            <video
+                                src={selectedImage.imageUrl}
+                                className="gallery__lightbox-media"
+                                controls
+                                autoPlay
+                                loop
+                            />
+                        ) : (
+                            <img
+                                src={selectedImage.imageUrl}
+                                alt={selectedImage.title}
+                                className="gallery__lightbox-media"
+                            />
+                        )}
                         <div className="gallery__lightbox-info">
                             <h3 className="gallery__lightbox-title">{selectedImage.title}</h3>
                             <span className="gallery__lightbox-category">{selectedImage.category}</span>

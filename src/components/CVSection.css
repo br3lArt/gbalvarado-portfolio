@@ -1,123 +1,118 @@
+/* ================================
+   CV SECTION - Enhanced Typography & Hierarchy
+   ================================ */
+
 .cv {
-    background: var(--color-bg-secondary);
+    position: relative;
+    padding: var(--space-20) 0;
+    background: linear-gradient(180deg,
+            #E8B4C8 0%,
+            #FADCE5 30%,
+            #FEF0F0 100%);
+    overflow: hidden;
 }
 
-.cv__container {
-    max-width: 1100px;
+/* Section Header */
+.cv__header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+    padding: 0 var(--space-6);
 }
 
-.cv__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-6);
-    align-items: start;
-}
-
-/* Cards */
-.cv__card {
-    background: var(--color-bg-card);
-    border-radius: var(--radius-xl);
-    padding: var(--space-6);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--color-border-light);
-    margin-bottom: var(--space-6);
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.cv__card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
-
-.cv__card:last-child {
-    margin-bottom: 0;
-}
-
-.cv__card-title {
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-4);
-}
-
-/* Bio Card */
-.cv__bio {
-    background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(124, 58, 237, 0.03) 100%);
-}
-
-.cv__name {
-    font-size: var(--text-3xl);
-    font-weight: var(--font-bold);
-    margin-bottom: var(--space-3);
-}
-
-.cv__bio-text {
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    margin-bottom: 0;
-}
-
-/* Lists */
-.cv__list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-}
-
-.cv__list-item {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    padding-bottom: var(--space-4);
-    border-bottom: 1px solid var(--color-border-light);
-}
-
-.cv__list-item:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.cv__item-title {
-    font-weight: var(--font-semibold);
-    color: var(--color-text);
-}
-
-.cv__item-subtitle {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-}
-
-.cv__item-period {
-    font-size: var(--text-xs);
-    color: var(--color-primary);
+.cv__tag {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
     font-weight: var(--font-medium);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+    letter-spacing: 0.05em;
 }
 
-/* Languages */
-.cv__list--inline {
+.cv__title {
+    display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--space-3);
 }
 
-.cv__lang-item {
+.cv__title-outline {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: var(--font-extrabold);
+    color: transparent;
+    -webkit-text-stroke: 2px var(--color-primary);
+    letter-spacing: -0.02em;
+}
+
+.cv__title-filled {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: var(--font-extrabold);
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+}
+
+/* Container Grid */
+.cv__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-10);
+    align-items: start;
+}
+
+/* Columns */
+.cv__column {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--space-3);
-    background: var(--color-bg-secondary);
-    border-radius: var(--radius-lg);
+    flex-direction: column;
+    gap: var(--space-8);
 }
 
-.cv__lang-name {
-    font-weight: var(--font-medium);
-    color: var(--color-text);
+/* Card Base Styles - Enhanced */
+.cv__profile-card,
+.cv__bio-card,
+.cv__languages-card,
+.cv__experience-card,
+.cv__education-card,
+.cv__skills-card,
+.cv__programs-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    box-shadow:
+        0 10px 40px rgba(74, 25, 66, 0.08),
+        0 4px 12px rgba(74, 25, 66, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.cv__lang-level {
-    font-size: var(--text-xs);
-    color: var(--color-text-muted);
+.cv__profile-card:hover,
+.cv__bio-card:hover,
+.cv__languages-card:hover,
+.cv__experience-card:hover,
+.cv__education-card:hover,
+.cv__skills-card:hover,
+.cv__programs-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 20px 60px rgba(74, 25, 66, 0.12),
+        0 8px 24px rgba(74, 25, 66, 0.08);
+}
+
+.cv__card-label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--space-6);
 }
 
 /* Profile Card */
@@ -125,149 +120,315 @@
     text-align: center;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: white;
+    padding: var(--space-10);
 }
 
-.cv__profile-card .cv__card-title {
-    color: rgba(255, 255, 255, 0.7);
+.cv__profile-image-wrapper {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto var(--space-8);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
 .cv__profile-image {
-    margin-bottom: var(--space-4);
-}
-
-.cv__profile-placeholder {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-}
-
-.cv__profile-icon {
-    font-size: 40px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
 }
 
 .cv__profile-name {
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
     font-weight: var(--font-bold);
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-2);
+    letter-spacing: 0.02em;
 }
 
 .cv__profile-nickname {
-    font-size: var(--text-sm);
-    opacity: 0.8;
-}
-
-/* Achievements */
-.cv__achievements {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-}
-
-.cv__achievement-item {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-3);
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-}
-
-.cv__achievement-icon {
-    color: var(--color-accent);
     font-size: var(--text-base);
+    opacity: 0.9;
+    font-weight: var(--font-medium);
 }
 
-/* Skills */
-.cv__skills {
+/* Bio Card - Enhanced Typography */
+.cv__bio-text {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-text);
+    margin: 0;
+    font-weight: var(--font-normal);
+}
+
+/* Languages Card */
+.cv__languages-list {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
 }
 
-.cv__skill-header {
+.cv__language-item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: var(--space-2);
+    align-items: center;
+    padding: var(--space-4);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
 }
 
-.cv__skill-name {
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
+.cv__language-name {
+    font-weight: var(--font-semibold);
+    font-size: var(--text-base);
     color: var(--color-text);
 }
 
-.cv__skill-level {
-    font-size: var(--text-xs);
+.cv__language-level {
+    font-size: var(--text-sm);
     color: var(--color-text-muted);
+    font-weight: var(--font-medium);
 }
 
-.cv__skill-bar {
-    height: 6px;
-    background: var(--color-bg-secondary);
-    border-radius: var(--radius-full);
-    overflow: hidden;
+/* Experience Card - Enhanced */
+.cv__experience-list,
+.cv__education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
 }
 
-.cv__skill-progress {
-    height: 100%;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    border-radius: var(--radius-full);
-    transition: width 1s ease;
+.cv__experience-item,
+.cv__education-item {
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border-light);
 }
 
-/* Programs */
-.cv__programs {
+.cv__experience-item:last-child,
+.cv__education-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.cv__exp-title,
+.cv__edu-degree {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--color-text);
+    margin: 0 0 var(--space-2);
+}
+
+.cv__exp-company,
+.cv__edu-institution {
+    display: block;
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+    font-weight: var(--font-medium);
+}
+
+.cv__exp-period,
+.cv__edu-period {
+    font-size: var(--text-sm);
+    color: var(--color-primary);
+    font-weight: var(--font-semibold);
+}
+
+/* Skills Card - Enhanced */
+.cv__skills-grid {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-3);
 }
 
-.cv__program {
-    width: 50px;
-    height: 50px;
-    background: var(--color-bg-secondary);
+.cv__skill-tag {
+    padding: var(--space-3) var(--space-5);
+    background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-primary-light) 100%);
+    border-radius: var(--radius-full);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--color-primary-dark);
+}
+
+/* ================================
+   PROGRAMS - Only 5 with Original Colors
+   ================================ */
+
+.cv__programs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+}
+
+.cv__program-icon {
+    width: 65px;
+    height: 65px;
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-base);
-    cursor: default;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform var(--transition-base);
 }
 
-.cv__program:hover {
-    background: var(--color-primary);
-    transform: translateY(-2px);
+.cv__program-icon:hover {
+    transform: translateY(-4px) scale(1.08);
 }
 
-.cv__program:hover .cv__program-icon {
-    color: white;
-}
-
-.cv__program-icon {
+.cv__program-icon span {
     font-family: var(--font-heading);
-    font-size: var(--text-sm);
+    font-size: var(--text-xl);
     font-weight: var(--font-bold);
-    color: var(--color-text-secondary);
-    transition: color var(--transition-base);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .cv__grid {
+/* Photoshop - Blue on Dark Blue */
+.cv__program-icon--ps {
+    background: linear-gradient(145deg, #001E36 0%, #001426 100%);
+}
+
+.cv__program-icon--ps span {
+    color: #31A8FF;
+}
+
+/* Illustrator - Orange on Dark Brown */
+.cv__program-icon--ai {
+    background: linear-gradient(145deg, #330000 0%, #1A0000 100%);
+}
+
+.cv__program-icon--ai span {
+    color: #FF9A00;
+}
+
+/* Premiere Pro - Purple on Dark Purple */
+.cv__program-icon--pr {
+    background: linear-gradient(145deg, #00005B 0%, #000033 100%);
+}
+
+.cv__program-icon--pr span {
+    color: #9999FF;
+}
+
+/* After Effects - Purple/Blue on Dark */
+.cv__program-icon--ae {
+    background: linear-gradient(145deg, #00005B 0%, #000033 100%);
+}
+
+.cv__program-icon--ae span {
+    color: #9999FF;
+}
+
+/* Blender - Orange on Black */
+.cv__program-icon--bl {
+    background: linear-gradient(145deg, #1A1A1A 0%, #0D0D0D 100%);
+}
+
+.cv__program-icon--bl span {
+    color: #F5792A;
+}
+
+/* Decorations */
+.cv__decoration {
+    position: absolute;
+    pointer-events: none;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+.cv__decoration--1 {
+    top: 15%;
+    right: 8%;
+    font-size: 28px;
+    color: var(--color-primary);
+}
+
+.cv__decoration--2 {
+    bottom: 20%;
+    left: 5%;
+    font-size: 32px;
+    color: var(--color-primary-dark);
+    animation-delay: 1s;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 900px) {
+    .cv__container {
         grid-template-columns: 1fr;
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cv {
+        padding: var(--space-14) 0;
     }
 
-    .cv__left,
-    .cv__right {
-        order: unset;
+    .cv__title-outline {
+        -webkit-text-stroke: 1.5px var(--color-primary);
     }
 
-    .cv__profile-card {
-        order: -1;
+    .cv__profile-image-wrapper {
+        width: 130px;
+        height: 130px;
+    }
+
+    .cv__card-label {
+        margin-bottom: var(--space-4);
+    }
+
+    .cv__bio-text {
+        font-size: var(--text-base);
+    }
+
+    .cv__exp-title,
+    .cv__edu-degree {
+        font-size: var(--text-base);
+    }
+
+    .cv__program-icon {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cv__container {
+        padding: 0 var(--space-4);
+    }
+
+    .cv__profile-card,
+    .cv__bio-card,
+    .cv__languages-card,
+    .cv__experience-card,
+    .cv__education-card,
+    .cv__skills-card,
+    .cv__programs-card {
+        padding: var(--space-6);
+    }
+
+    .cv__program-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .cv__program-icon span {
+        font-size: var(--text-lg);
     }
 }
