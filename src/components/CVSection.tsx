@@ -100,10 +100,10 @@ const CVSection = () => {
                             {profileData.programs.map((program, index) => (
                                 <div
                                     key={index}
-                                    className={`cv__program-icon cv__program-icon--${program.icon.toLowerCase()}`}
+                                    className={`cv__program-icon cv__program-icon--${program.icon?.toLowerCase() ?? ''}`}
                                     title={program.name}
                                 >
-                                    <span>{program.icon}</span>
+                                    <span>{program.icon ?? ''}</span>
                                 </div>
                             ))}
                         </div>
